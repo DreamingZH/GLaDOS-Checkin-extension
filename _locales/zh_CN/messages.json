@@ -1,0 +1,128 @@
+{
+  "name": {
+    "message": "GLaDOS 签到助手"
+  },
+  "description": {
+    "message": "官网签到、每日预约与启动补签。"
+  },
+  "flow": {
+    "message": "官网流程"
+  },
+  "start": {
+    "message": "开始签到"
+  },
+  "page": {
+    "message": "查看官网"
+  },
+  "daily": {
+    "message": "每日定时"
+  },
+  "scheduleHint": {
+    "message": "重启保留 · 错过预约时补签一次"
+  },
+  "every": {
+    "message": "每天"
+  },
+  "saved": {
+    "message": "已保存"
+  },
+  "autoSaved": {
+    "message": "已自动保存"
+  },
+  "pending": {
+    "message": "待自动保存"
+  },
+  "saving": {
+    "message": "保存中…"
+  },
+  "saveFailed": {
+    "message": "保存失败，请重试"
+  },
+  "invalidTime": {
+    "message": "请输入完整时间（00:00–23:59）"
+  },
+  "next": {
+    "message": "下次预约："
+  },
+  "disabled": {
+    "message": "定时未开启"
+  },
+  "records": {
+    "message": "运行记录"
+  },
+  "empty": {
+    "message": "暂无记录"
+  },
+  "success": {
+    "message": "成功"
+  },
+  "failure": {
+    "message": "失败／未确认"
+  },
+  "timer": {
+    "message": "有定时任务"
+  },
+  "verify": {
+    "message": "需要验证时，请在官网手动完成。"
+  },
+  "idle": {
+    "message": "待运行"
+  },
+  "running": {
+    "message": "运行中"
+  },
+  "cooldown": {
+    "message": "冷却 $1 秒"
+  },
+  "open": {
+    "message": "打开官网"
+  },
+  "catchup": {
+    "message": "已过预约时间，启动补签"
+  },
+  "checking": {
+    "message": "检查签到状态"
+  },
+  "clicked": {
+    "message": "已点击，等待结果"
+  },
+  "done": {
+    "message": "页面显示已签到"
+  },
+  "points": {
+    "message": "签到成功，获得 $1 Points"
+  },
+  "unknown": {
+    "message": "结果未确认，请查看官网"
+  },
+  "timeout": {
+    "message": "超时，请查看官网"
+  },
+  "closed": {
+    "message": "任务页面已关闭，结果未确认"
+  },
+  "interrupted": {
+    "message": "任务中断，请核对官网"
+  },
+  "openFailed": {
+    "message": "无法打开官网，请检查"
+  },
+  "readFailed": {
+    "message": "读取失败，请重新加载扩展"
+  },
+  "invalidSaved": {
+    "message": "时间无效，定时已关闭"
+  },
+  "promo": {
+    "message": "GLaDOS 套餐 9 折优惠"
+  },
+  "promoHint": {
+    "message": "使用支付宝支付时输入优惠码 WELCOME10，立减 10%。"
+  },
+  "copy": {
+    "message": "复制优惠码"
+  },
+  "copied": {
+    "message": "已复制"
+  }
+}

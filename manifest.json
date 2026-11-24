@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_name__",
+  "description": "__MSG_description__",
+  "version": "1.2.4.10",
+  "default_locale": "en",
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "__MSG_name__",
+    "default_icon": "icons/base.png"
+  },
+  "icons": {
+    "128": "icons/base.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://glados.rocks/console/checkin*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}

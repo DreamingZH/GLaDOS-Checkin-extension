@@ -1,0 +1,128 @@
+{
+  "name": {
+    "message": "GLaDOS Check-in Assistant"
+  },
+  "description": {
+    "message": "Website check-in, daily scheduling and startup catch-up."
+  },
+  "flow": {
+    "message": "Website check-in"
+  },
+  "start": {
+    "message": "Check in"
+  },
+  "page": {
+    "message": "Open website"
+  },
+  "daily": {
+    "message": "Daily schedule"
+  },
+  "scheduleHint": {
+    "message": "Saved across restarts · Catch up once if missed"
+  },
+  "every": {
+    "message": "Daily at"
+  },
+  "saved": {
+    "message": "Saved"
+  },
+  "autoSaved": {
+    "message": "Auto-saved"
+  },
+  "pending": {
+    "message": "Unsaved changes"
+  },
+  "saving": {
+    "message": "Saving…"
+  },
+  "saveFailed": {
+    "message": "Could not save. Try again."
+  },
+  "invalidTime": {
+    "message": "Enter a complete time (00:00–23:59)"
+  },
+  "next": {
+    "message": "Next scheduled run: "
+  },
+  "disabled": {
+    "message": "Schedule is off"
+  },
+  "records": {
+    "message": "Activity"
+  },
+  "empty": {
+    "message": "No activity yet"
+  },
+  "success": {
+    "message": "Success"
+  },
+  "failure": {
+    "message": "Failed / unconfirmed"
+  },
+  "timer": {
+    "message": "Scheduled"
+  },
+  "verify": {
+    "message": "Complete verification on the website when required."
+  },
+  "idle": {
+    "message": "Ready"
+  },
+  "running": {
+    "message": "Running"
+  },
+  "cooldown": {
+    "message": "Wait $1 s"
+  },
+  "open": {
+    "message": "Opening website"
+  },
+  "catchup": {
+    "message": "Scheduled time passed; starting catch-up"
+  },
+  "checking": {
+    "message": "Checking status"
+  },
+  "clicked": {
+    "message": "Clicked; waiting for result"
+  },
+  "done": {
+    "message": "Website shows already checked in"
+  },
+  "points": {
+    "message": "Check-in confirmed: $1 Points"
+  },
+  "unknown": {
+    "message": "Result unconfirmed; check the website"
+  },
+  "timeout": {
+    "message": "Timed out; check the website"
+  },
+  "closed": {
+    "message": "Task tab closed; result unconfirmed"
+  },
+  "interrupted": {
+    "message": "Task interrupted; check the website"
+  },
+  "openFailed": {
+    "message": "Could not open the website"
+  },
+  "readFailed": {
+    "message": "Could not read settings. Reload the extension."
+  },
+  "invalidSaved": {
+    "message": "Invalid time; schedule disabled"
+  },
+  "promo": {
+    "message": "Save 10% on GLaDOS plans"
+  },
+  "promoHint": {
+    "message": "Pay with Alipay and enter coupon code WELCOME10 at checkout."
+  },
+  "copy": {
+    "message": "Copy code"
+  },
+  "copied": {
+    "message": "Copied"
+  }
+}

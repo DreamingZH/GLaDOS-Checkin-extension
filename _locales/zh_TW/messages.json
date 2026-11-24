@@ -1,0 +1,128 @@
+{
+  "name": {
+    "message": "GLaDOS 簽到助手"
+  },
+  "description": {
+    "message": "官網簽到、每日預約與啟動補簽。"
+  },
+  "flow": {
+    "message": "官網流程"
+  },
+  "start": {
+    "message": "開始簽到"
+  },
+  "page": {
+    "message": "查看官網"
+  },
+  "daily": {
+    "message": "每日定時"
+  },
+  "scheduleHint": {
+    "message": "重新啟動後保留 · 錯過預約時補簽一次"
+  },
+  "every": {
+    "message": "每天"
+  },
+  "saved": {
+    "message": "已儲存"
+  },
+  "autoSaved": {
+    "message": "已自動儲存"
+  },
+  "pending": {
+    "message": "等待自動儲存"
+  },
+  "saving": {
+    "message": "儲存中…"
+  },
+  "saveFailed": {
+    "message": "儲存失敗，請重試"
+  },
+  "invalidTime": {
+    "message": "請輸入完整時間（00:00–23:59）"
+  },
+  "next": {
+    "message": "下次預約："
+  },
+  "disabled": {
+    "message": "定時未開啟"
+  },
+  "records": {
+    "message": "執行記錄"
+  },
+  "empty": {
+    "message": "暫無記錄"
+  },
+  "success": {
+    "message": "成功"
+  },
+  "failure": {
+    "message": "失敗／未確認"
+  },
+  "timer": {
+    "message": "有定時任務"
+  },
+  "verify": {
+    "message": "需要驗證時，請在官網手動完成。"
+  },
+  "idle": {
+    "message": "等待執行"
+  },
+  "running": {
+    "message": "執行中"
+  },
+  "cooldown": {
+    "message": "冷卻 $1 秒"
+  },
+  "open": {
+    "message": "開啟官網"
+  },
+  "catchup": {
+    "message": "已過預約時間，啟動補簽"
+  },
+  "checking": {
+    "message": "檢查簽到狀態"
+  },
+  "clicked": {
+    "message": "已點擊，等待結果"
+  },
+  "done": {
+    "message": "頁面顯示已簽到"
+  },
+  "points": {
+    "message": "簽到成功，獲得 $1 Points"
+  },
+  "unknown": {
+    "message": "結果未確認，請查看官網"
+  },
+  "timeout": {
+    "message": "逾時，請查看官網"
+  },
+  "closed": {
+    "message": "任務頁面已關閉，結果未確認"
+  },
+  "interrupted": {
+    "message": "任務中斷，請核對官網"
+  },
+  "openFailed": {
+    "message": "無法開啟官網，請檢查"
+  },
+  "readFailed": {
+    "message": "讀取失敗，請重新載入擴充功能"
+  },
+  "invalidSaved": {
+    "message": "時間無效，定時已關閉"
+  },
+  "promo": {
+    "message": "GLaDOS 方案 9 折優惠"
+  },
+  "promoHint": {
+    "message": "使用支付寶付款時輸入優惠碼 WELCOME10，現折 10%。"
+  },
+  "copy": {
+    "message": "複製優惠碼"
+  },
+  "copied": {
+    "message": "已複製"
+  }
+}

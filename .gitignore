@@ -1,0 +1,15 @@
+# IDE / editor
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Packages / build output
+*.zip
+*.crx
+*.pem
+node_modules/

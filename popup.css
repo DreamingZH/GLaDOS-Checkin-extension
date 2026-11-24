@@ -1,0 +1,243 @@
+* {
+    box-sizing: border-box
+}
+
+[hidden] {
+    display: none !important
+}
+
+body {
+    width: 390px;
+    margin: 0;
+    background: #eef6f7;
+    color: #17343b;
+    font: 13px system-ui, sans-serif
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    background: white;
+    border-bottom: 1px solid #dce9eb
+}
+
+header img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain
+}
+
+h1 {
+    font-size: 17px;
+    margin: 0 0 4px
+}
+
+h2 {
+    font-size: 13px;
+    margin: 0 0 4px
+}
+
+small, footer {
+    font-size: 11px;
+    color: #516d75
+}
+
+main {
+    padding: 12px 14px
+}
+
+section {
+    background: white;
+    border: 1px solid #dce9eb;
+    border-radius: 13px;
+    padding: 13px;
+    margin-bottom: 8px
+}
+
+#state {
+    display: block;
+    font-size: 15px;
+    overflow-wrap: anywhere
+}
+
+progress {
+    width: 100%;
+    height: 7px;
+    accent-color: #247c80
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px
+}
+
+button {
+    font: inherit;
+    padding: 8px 12px;
+    border: 1px solid #c2d5d9;
+    border-radius: 9px;
+    background: white;
+    color: #17343b;
+    cursor: pointer
+}
+
+#start {
+    background: #247c80;
+    color: white;
+    border-color: #247c80
+}
+
+button:disabled {
+    opacity: .55;
+    cursor: default
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px
+}
+
+.switch {
+    position: relative;
+    width: 46px;
+    height: 26px;
+    display: block;
+    flex: none
+}
+
+.switch input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    z-index: 2;
+    cursor: pointer
+}
+
+.switch span {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: #d5e2e5;
+    pointer-events: none;
+    transition: .18s
+}
+
+.switch span:before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 1px 3px #0003;
+    transition: .18s
+}
+
+.switch input:checked + span {
+    background: #247c80
+}
+
+.switch input:checked + span:before {
+    transform: translateX(20px)
+}
+
+.switch input:focus-visible + span {
+    outline: 2px solid #17343b;
+    outline-offset: 2px
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 12px;
+    flex-wrap: wrap
+}
+
+.time input {
+    font: inherit;
+    padding: 7px 9px;
+    border: 1px solid #c2d5d9;
+    border-radius: 8px;
+    background: #f8fbfc;
+    color: #17343b
+}
+
+#next {
+    display: block;
+    margin-top: 10px;
+    border-top: 1px dashed #dce9eb;
+    padding-top: 8px
+}
+
+#error {
+    display: block;
+    color: #dc2626;
+    margin-top: 5px
+}
+
+.promo {
+    background: #f4fbfb;
+    border-color: #cbe4e6
+}
+
+.coupon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 9px;
+    flex-wrap: wrap
+}
+
+.coupon code {
+    font: 600 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    letter-spacing: .06em;
+    padding: 8px 11px;
+    border: 1px dashed #7fb3b7;
+    border-radius: 8px;
+    background: white;
+    color: #17585b
+}
+
+.coupon button {
+    padding: 7px 11px
+}
+
+pre {
+    font: 12px/1.65 system-ui, sans-serif;
+    font-variant-numeric: tabular-nums;
+    white-space: pre-wrap;
+    margin: 0;
+    max-height: 132px;
+    overflow: auto
+}
+
+footer {
+    text-align: center;
+    padding: 5px
+}
+
+footer p {
+    margin: 5px 0 0
+}
+
+.green {
+    color: #16a34a
+}
+
+.red {
+    color: #dc2626
+}
+
+.blue {
+    color: #1d4ed8
+}
