@@ -1,0 +1,56 @@
+name: Build and release zip
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Read extension version
+        id: meta
+        run: |
+          version=$(node -p "require('./manifest.json').version")
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "zip=glados-checkin-assistant-$version.zip" >> "$GITHUB_OUTPUT"
+
+      - name: Check that the tag matches manifest.json
+        if: github.ref_type == 'tag'
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          if [ "$tag" != "${{ steps.meta.outputs.version }}" ]; then
+            echo "::error::Tag ${GITHUB_REF_NAME} does not match manifest.json version ${{ steps.meta.outputs.version }}"
+            exit 1
+          fi
+
+      - name: Create extension zip
+        run: |
+          zip -r "${{ steps.meta.outputs.zip }}" \
+            manifest.json background.js content.js \
+            popup.html popup.css popup.js \
+            _locales icons LICENSE \
+            -x '*.DS_Store' -x '__MACOSX/*'
+
+      - name: Upload zip as workflow artifact
+        if: github.ref_type != 'tag'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.meta.outputs.zip }}
+          path: ${{ steps.meta.outputs.zip }}
+          if-no-files-found: error
+
+      - name: Publish GitHub release
+        if: github.ref_type == 'tag'
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          files: ${{ steps.meta.outputs.zip }}
+          generate_release_notes: true
