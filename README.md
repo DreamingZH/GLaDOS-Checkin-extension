@@ -17,7 +17,8 @@ schedule, or as a one-time catch-up if a scheduled run was missed.
   unconfirmed, and whether a schedule is active.
 - **Activity log** — the last runs are listed with their timestamps.
 - **Localized UI** — Simplified Chinese, Traditional Chinese and English
-  (follows the browser language).
+  (follows the browser language). Any other browser language falls back to
+  English, including date and time formatting.
 
 ## Install
 

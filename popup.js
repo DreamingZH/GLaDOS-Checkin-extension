@@ -40,7 +40,10 @@ const LEGACY = {
 };
 const $ = id => document.getElementById(id), S = chrome.storage.local,
     T = (k, a = []) => chrome.i18n.getMessage(k, a) || k;
-const locale = chrome.i18n.getUILanguage();
+// Only English, Simplified and Traditional Chinese are translated; other
+// browser languages fall back to English for both text and number/date formats.
+const uiLanguage = chrome.i18n.getUILanguage() || 'en',
+    locale = /^zh/i.test(uiLanguage) ? (/hant|tw|hk|mo/i.test(uiLanguage) ? 'zh-TW' : 'zh-CN') : 'en';
 document.documentElement.lang = locale;
 document.title = T('name');
 document.querySelectorAll('[data-i18n]').forEach(e => e.textContent = T(e.dataset.i18n));
