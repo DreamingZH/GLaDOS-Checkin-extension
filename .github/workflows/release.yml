@@ -20,7 +20,7 @@ jobs:
         run: |
           version=$(node -p "require('./manifest.json').version")
           echo "version=$version" >> "$GITHUB_OUTPUT"
-          echo "zip=glados-checkin-assistant-$version.zip" >> "$GITHUB_OUTPUT"
+          echo "zip=GLaDOS-Checkin-extension-$version.zip" >> "$GITHUB_OUTPUT"
 
       - name: Check that the tag matches manifest.json
         if: github.ref_type == 'tag'

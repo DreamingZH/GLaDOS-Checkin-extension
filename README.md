@@ -102,7 +102,7 @@ A zip is built and published automatically by GitHub Actions
    git push origin main --tags
    ```
 3. The workflow checks that the tag matches `manifest.json`, builds
-   `glados-checkin-assistant-<version>.zip` (extension files + `LICENSE`), and
+   `GLaDOS-Checkin-extension-<version>.zip` (extension files + `LICENSE`), and
    attaches it to a new GitHub release with generated release notes.
 
 Running the workflow manually from the **Actions** tab only builds the zip and
