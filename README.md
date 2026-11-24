@@ -7,6 +7,8 @@ A Chrome extension (Manifest V3) that automates the daily check-in on
 [GLaDOS](https://glados.rocks/console/checkin). It can run on demand, on a daily
 schedule, or as a single catch-up attempt when a scheduled run was missed.
 
+![Extension popup](docs/popup.png)
+
 ## Features
 
 | Feature | Description |
@@ -108,6 +110,7 @@ copy button. The extension only displays the code; it does not process payments.
 ├── popup.html/css/js      # Extension popup
 ├── _locales/              # en, zh_CN, zh_TW message catalogues
 ├── icons/                 # Toolbar and popup icons
+├── docs/                  # Screenshots
 └── .github/workflows/     # Release automation
 ```
 
