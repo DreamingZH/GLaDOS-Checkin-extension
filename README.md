@@ -1,134 +1,146 @@
 # GLaDOS Check-in Assistant
 
-A small Chrome extension (Manifest V3) that performs the daily check-in on
-[GLaDOS](https://glados.rocks/console/checkin) for you: on demand, on a daily
-schedule, or as a one-time catch-up if a scheduled run was missed.
+[![Release](https://img.shields.io/github/v/release/DreamingZH/GLaDOS-Checkin-extension)](https://github.com/DreamingZH/GLaDOS-Checkin-extension/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+A Chrome extension (Manifest V3) that automates the daily check-in on
+[GLaDOS](https://glados.rocks/console/checkin). It can run on demand, on a daily
+schedule, or as a single catch-up attempt when a scheduled run was missed.
 
 ## Features
 
-- **Website check-in** — opens the GLaDOS check-in page in a background tab,
-  clicks the check-in button, waits for the result and reports the points earned.
-- **Daily schedule** — pick a time (default `09:30`) and the extension runs the
-  check-in every day. The time is saved automatically as you type and survives
-  browser restarts.
-- **Startup catch-up** — if a scheduled run was missed (for example the browser
-  was closed), one catch-up attempt is made on the next startup.
-- **Status at a glance** — the toolbar icon and popup show success, failure /
-  unconfirmed, and whether a schedule is active.
-- **Activity log** — the last runs are listed with their timestamps.
-- **Localized UI** — Simplified Chinese, Traditional Chinese and English
-  (follows the browser language). Any other browser language falls back to
-  English, including date and time formatting.
+| Feature | Description |
+| --- | --- |
+| Manual check-in | Opens the GLaDOS check-in page in a background tab, triggers the check-in button and reports the result. |
+| Daily schedule | Runs the check-in once per day at a configurable time (default `09:30`). Changes are saved automatically and persist across restarts. |
+| Startup catch-up | If a scheduled run was missed — for example, the browser was closed — one catch-up attempt is made on the next startup. |
+| Status reporting | The toolbar icon and popup indicate success, failure or an unconfirmed result, and whether a schedule is active. |
+| Activity log | Lists the steps and outcome of the most recent attempt with timestamps. |
+| Localization | Interface available in English, Simplified Chinese and Traditional Chinese. Unsupported browser languages fall back to English. |
 
-## Install
+## Requirements
 
-1. Download the latest zip from
-   [Releases](../../releases) and unzip it, or clone/download this repository.
-2. Open `chrome://extensions` and enable **Developer mode**.
-3. Click **Load unpacked** and select this folder.
+- Google Chrome or a Chromium-based browser with Manifest V3 support.
 
-To update an existing installation, overwrite the files in the extension folder
-and click **Reload** on the extensions page. Do not uninstall first — uninstalling
-clears the saved settings.
+## Installation
+
+### From a release
+
+1. Download `GLaDOS-Checkin-extension-<version>.zip` from
+   [Releases](https://github.com/DreamingZH/GLaDOS-Checkin-extension/releases).
+2. Extract the archive.
+3. Open `chrome://extensions`, enable **Developer mode**, click **Load unpacked**
+   and select the extracted folder.
+
+### From source
+
+```bash
+git clone https://github.com/DreamingZH/GLaDOS-Checkin-extension.git
+```
+
+Then load the repository folder as an unpacked extension as described above.
+
+### Updating
+
+Overwrite the files in the extension directory and click **Reload** on the
+extensions page. Do not uninstall the extension first: uninstalling removes all
+saved settings.
 
 ## Usage
 
-1. Click the toolbar icon to open the popup.
-2. Press **Check in** to run a check-in immediately, or **Open website** to review
-   the result on the GLaDOS site yourself.
-3. Turn on **Daily schedule**, choose a time and it is saved automatically.
+1. Click the extension icon to open the popup.
+2. Select **Check in** to run a check-in immediately, or **Open website** to
+   inspect the result on the GLaDOS site.
+3. Enable **Daily schedule** and choose a time. The value is saved automatically.
 
-If the site asks for a human verification (captcha), complete it on the website
-manually — the extension does not attempt to bypass it.
+If the website requests a human verification (captcha), complete it manually.
+The extension does not attempt to bypass it.
 
-## Coupon — 10% off with Alipay
+## Privacy and Permissions
 
-Paying for a GLaDOS plan with **Alipay**? Enter the coupon code below at checkout
-to get **10% off**:
+The extension does not collect, transmit or sell any data. It contains no
+analytics, telemetry, remote code or third-party requests.
+
+- **Permissions.** Only `storage` and `alarms` are requested. The extension does
+  not hold the `tabs`, `cookies`, `history` or `webRequest` permissions and
+  declares no host permissions, so it cannot read browsing history, cookie
+  contents or credentials.
+- **Scope.** The content script is restricted to
+  `https://glados.rocks/console/checkin*`. It is injected only into that page and
+  remains idle unless the extension has started a check-in job.
+- **Local data.** The following values are stored in `chrome.storage.local` on
+  the user's device and are never uploaded:
+
+  | Key | Purpose |
+  | --- | --- |
+  | `scheduleEnabled`, `scheduleTime`, `next` | Daily schedule |
+  | `result`, `resultDay`, `lastSuccessDay`, `lastFailureDay`, `last` | Current status and cooldown |
+  | `logs` | Steps of the latest check-in attempt |
+  | `job`, `page` | Temporary background tab used for the current run |
+  | `statusMessage`, `catchupAttemptDay`, `scheduleErrorKey` | Interface state |
+
+  All data is removed when the extension is uninstalled.
+- **Authentication.** The extension does not request, read or store GLaDOS
+  credentials. It opens the check-in page in the browser and relies on the
+  session that is already signed in, exactly as a normal page visit would.
+- **Network.** The only destination is `glados.rocks`, which serves the check-in
+  page itself.
+
+## Discount Code
+
+GLaDOS plans paid with **Alipay** can be discounted by entering the following
+code at checkout:
 
 ```
 WELCOME10
 ```
 
-The same code is shown in the extension popup with a one-click copy button.
+The code grants 10% off. It is also displayed in the extension popup with a
+copy button. The extension only displays the code; it does not process payments.
 
-## Privacy
+## Project Structure
 
-**This extension collects, transmits and sells no data.** There is no analytics,
-telemetry, tracking pixel, remote code or third-party request anywhere in the
-project.
-
-- **Permissions are minimal.** The extension requests `storage` and `alarms`
-  only. It has no `tabs`, `cookies`, `history`, `webRequest` or `host_permissions`
-  access, so it cannot read your browsing history, open tabs, cookies or
-  credentials on any site.
-- **Only one site is touched.** The content script is restricted to
-  `https://glados.rocks/console/checkin*` and runs only in the background tab that
-  the extension itself opened for a check-in. It reads and clicks the official
-  check-in button; it does not scrape or upload page content.
-- **What is stored locally** (in `chrome.storage.local`, on your device only):
-
-  | Key | Purpose |
-  | --- | --- |
-  | `scheduleEnabled`, `scheduleTime`, `next` | Your daily schedule |
-  | `result`, `resultDay`, `lastSuccessDay`, `lastFailureDay`, `last` | Today's status and cooldown |
-  | `logs` | The last 25 activity entries (time + message, e.g. points earned) |
-  | `job`, `page` | The temporary background tab used for the current run |
-  | `statusMessage`, `catchupAttemptDay`, `scheduleErrorKey` | UI state |
-
-  None of it is ever sent anywhere, and it disappears when the extension is
-  uninstalled.
-- **No account handling.** The extension never asks for, reads or stores your
-  GLaDOS credentials. It reuses the login you already have in the browser when it
-  opens the check-in page, exactly as if you had opened the page yourself.
-- **No bundled or remote scripts.** All code ships in this repository; the
-  Manifest V3 content security policy forbids remote code.
-
-The only network traffic generated by the extension is loading the
-`glados.rocks` check-in page, which is the site's own request and is subject to
-[GLaDOS's own privacy policy](https://glados.rocks).
+```
+.
+├── manifest.json          # Manifest V3 definition
+├── background.js          # Service worker: scheduling, job orchestration
+├── content.js             # Check-in automation on the GLaDOS page
+├── popup.html/css/js      # Extension popup
+├── _locales/              # en, zh_CN, zh_TW message catalogues
+├── icons/                 # Toolbar and popup icons
+└── .github/workflows/     # Release automation
+```
 
 ## Releasing
 
-A zip is built and published automatically by GitHub Actions
-(`.github/workflows/release.yml`):
+Releases are built by GitHub Actions (`.github/workflows/release.yml`):
 
-1. Bump `version` in `manifest.json` (extension versions use up to four numeric
-   parts, e.g. `1.2.4.11`).
-2. Commit, then push a matching tag:
+1. Update `version` in `manifest.json`. Extension versions may contain up to four
+   numeric components, for example `1.2.4.11`.
+2. Commit the change and push a matching tag:
+
    ```bash
    git commit -am "Release 1.2.4.11"
    git tag v1.2.4.11
    git push origin main --tags
    ```
-3. The workflow checks that the tag matches `manifest.json`, builds
-   `GLaDOS-Checkin-extension-<version>.zip` (extension files + `LICENSE`), and
-   attaches it to a new GitHub release with generated release notes.
 
-Running the workflow manually from the **Actions** tab only builds the zip and
-keeps it as a workflow artifact, without creating a release.
+3. The workflow verifies that the tag matches `manifest.json`, builds
+   `GLaDOS-Checkin-extension-<version>.zip` containing the extension files and
+   the license, and publishes it as a GitHub release with generated notes.
 
-## Notes
+Running the workflow manually from the **Actions** tab builds the archive and
+stores it as a workflow artifact without creating a release.
 
-- The schedule follows the local time zone of your computer.
-- Check-ins done manually on the website or from another device cannot be
-  detected offline; the extension re-checks the page status after loading it.
-- The extension keeps its state locally (`chrome.storage.local`) and talks to
-  nothing except `glados.rocks`.
+## Limitations
 
-## Release notes — 1.2.4.10
-
-- Full extension build; replaces every file in the previous extension folder.
-- Keeps i18n (Simplified Chinese, Traditional Chinese, English), automatic time
-  saving, the daily schedule, one catch-up check-in after a missed schedule at
-  startup, and local state persistence.
-- Toolbar and popup share transparent, rounded-corner icon files; the status bar
-  is flush, full width and free of borders or padding, matching the bottom
-  corners. A single status is full width; result and schedule split the bar.
-- Colors: dark green for success, dark red for failure / unconfirmed, dark blue
-  for a scheduled run. The rest of the color scheme is unchanged.
-- Adds the WELCOME10 coupon hint (10% off, Alipay) to the popup and README.
-- Not tested in a real browser with a real account.
+- The schedule follows the local time zone of the computer.
+- Check-ins performed manually, on the website or from another device, cannot be
+  detected while offline; the page status is re-checked once it loads.
+- Site markup changes may require updates to the selectors used by
+  `content.js`.
+- Automated checks are provided as-is. The extension has not been validated
+  against every GLaDOS account or browser version.
 
 ## License
 
@@ -136,5 +148,6 @@ Released under the [MIT License](LICENSE).
 
 ## Disclaimer
 
-This is an unofficial helper and is not affiliated with GLaDOS. Use it at your own
-risk and in line with the website's terms of service.
+This project is an unofficial helper and is not affiliated with, endorsed by or
+sponsored by GLaDOS. Use it at your own risk and in accordance with the
+website's terms of service.
